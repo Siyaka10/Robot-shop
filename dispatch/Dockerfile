@@ -1,10 +1,18 @@
 FROM golang:1.17
 
-WORKDIR /go/src/app
+WORKDIR/app
 
-COPY *.go .
+COPY go.mod ./
+COPY go.sum ./
 
-RUN go mod init dispatch && go get
-RUN go install
+RUN go mod download
 
-CMD dispatch
+COPY . .
+
+Run npm build
+
+RUN go build -o main .
+
+EXPOSE 8080
+
+CMD ["./main"]

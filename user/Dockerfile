@@ -1,16 +1,14 @@
 FROM node:14
 
+WORKDIR /usr/src/app
+
 ENV INSTANA_AUTO_PROFILE true
-
-EXPOSE 8080
-
-WORKDIR /opt/server
-
-COPY package.json /opt/server/
+COPY package*.json ./
 
 RUN npm install
 
-COPY server.js /opt/server/
+COPY . .
 
-CMD ["node", "server.js"]
+EXPOSE 8080
 
+CMD [ "node", "server.js" ]
