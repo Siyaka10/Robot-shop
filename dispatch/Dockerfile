@@ -9,7 +9,6 @@ WORKDIR /app
 
 COPY . .
 
-Run npm build
 
 RUN go build -o main .
 
