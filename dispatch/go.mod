@@ -1,6 +1,6 @@
 module dispatch
 
-go 1.22
+go 1.24
 
 require (
 	github.com/instana/go-sensor v1.69.1
